@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <style>
+        table {
+            width: 70%;
+            border-top: 1px solid #444444;
+            border-collapse: collapse;
+        }
+        th, td {
+            border-bottom: 1px solid #444444;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('main', id=users_data[0][0]) }}" style="position: relative; top: 5px;">메인 화면 이동</a>
+    <table border="1" width="80%" bgcolor="#11a9c1" bordercolor="white" cellspacing="5" style="position: relative; top: 20px;">
+        <tr align="center" bgcolor="white">
+            <th>ID</th>
+            <th>Password</th>
+            <th>School</th>
+            <th>Name</th>
+        </tr>
+        {% for user in users_data %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+            <td>{{ user[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

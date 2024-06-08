@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+</style>
+<body>
+    <h3>없는 정보입니다.<br>다시 입력하세요. 혹은 <a href="{{ url_for('signup') }}">signup</a></h3>
+    <hr>
+    <form action="/relogin" method="POST">
+        <input type="text" placeholder="아이디" name="id" style="width: 200px; height: 25px;" required>
+        <br>
+        <input type="password" placeholder="비밀번호" name="pw" style="width: 200px; height: 25px;" required>
+        <br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

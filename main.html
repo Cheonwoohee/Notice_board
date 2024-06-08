@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    a {
+        position: relative;
+            left: 1300px;
+            font-size: 20px; 
+    }
+</style>
+<body>
+    <h1>Welcome {{ id }}</h1>
+    <hr>
+    <a href="{{ url_for('signup') }}">signup</a>
+    <br>
+    <a href="{{ url_for('login') }}">login</a>
+    <br>
+    <a href="{{ url_for('logout') }}">logout</a>
+    <br>
+    <a href="{{ url_for('profile', id=id) }}">profile</a>
+    <br>
+    <a href="{{ url_for('notice', id=id) }}">notice</a>
+    <br>
+    <a href="{{ url_for('users') }}">users</a>
+</body>
+</html>

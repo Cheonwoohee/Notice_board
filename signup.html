@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        input {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form action="/signup" method="POST">
+        <input type="text" placeholder="아이디" name="id" style="width: 200px; height: 25px;" required>
+        <br>
+        <input type="text" placeholder="비밀번호" name="pw" style="width: 200px; height: 25px;" required>
+        <br>
+        <input type="text" placeholder="학교" name="school" style="width: 200px; height: 25px;" required>
+        <br>
+        <input type="text" placeholder="이름" name="name" style="width: 200px; height: 25px;" required>
+        <br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

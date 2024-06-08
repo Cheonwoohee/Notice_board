@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+</head>
+<body>
+    <h1>게시판</h1>
+    <ul>
+        {% if posts %}
+            {% for post in posts %}
+                <li><strong>Title</strong>: {{ post[1] }} 
+                    <button onclick="deletePost('{{ post[1] }}')">삭제</button></li>
+            {% endfor %}
+        {% else %}
+            <li>게시글이 없습니다.</li>
+        {% endif %}
+    </ul>
+    <a href="{{ url_for('write') }}">글 쓰기</a>
+    <br>
+    <a href="{{ url_for('main', id=info[0]) }}">메인 화면 가기</a>
+
+    <script>
+        function deletePost(title) {
+            if (confirm("게시물을 삭제하시겠습니까?")) {
+                fetch(`/delete/${title}`, {
+                    method: 'DELETE'
+                })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload();  // 페이지 새로고침
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+    </script>
+</body>
+</html>
